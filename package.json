@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/skazska/tools-data-transform.git"
   },
-  "author": "skazska@gmail.com",
+  "keywords": [
+    "object update",
+    "array transition"
+  ],
+  "author": "Said Karimov <skazska@gmail.com>",
   "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/skazska/tools-data-transform/issues"
