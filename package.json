@@ -1,0 +1,29 @@
+{
+  "name": "@skazska/tools-data-transform",
+  "preferGlobal": true,
+  "bin": "./index.js",
+  "version": "0.0.1",
+  "description": "utilities to manage data change",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js */test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skazska/tools-data-transform.git"
+  },
+  "author": "skazska@gmail.com",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/skazska/tools-data-transform/issues"
+  },
+  "homepage": "https://github.com/skazska/tools-data-transform#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.3.1",
+    "sinon-chai": "^3.3.0"
+  }
+}
