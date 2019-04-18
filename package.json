@@ -2,7 +2,7 @@
   "name": "@skazska/tools-data-transform",
   "preferGlobal": true,
   "bin": "./index.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "utilities to manage data change",
   "main": "index.js",
   "scripts": {
