@@ -1,26 +1,30 @@
-const Transition = require('./transition');
-
+/**
+ * removes property of obj if same property in newObj is undefined
+ * processes Objects recursively
+ * sets properties of obj to values of same properties of newObj
+ * @param {Object} obj
+ * @param {Object} newObj
+ */
 const update = (obj, newObj) => {
-    const set = (key, val) => {
-        if (val && typeof val === 'object') {
-            if (!obj[key]) {
-                if (Array.isArray(val)) {
-                    obj[key] = [];
-                } else {
-                    obj[key] = {};
-                }
-            }
-            update(obj[key], val);
-        } else {
-            obj[key] = newObj[key];
-        }
-    };
+    Object.keys(newObj).forEach(propName => {
+        const val = newObj[propName];
 
-    new Transition((oldKey, newKey) => oldKey === newKey)
-        .setRemover(oldKey => { delete obj[oldKey]; })
-        .setAdjustor((oldKey, newKey) => { set(oldKey, newObj[newKey]); })
-        .setCreator(newKey => { set(newKey, newObj[newKey]); })
-        .perform(Object.keys(obj), Object.keys(newObj));
+        if (typeof val === 'undefined' && obj.hasOwnProperty(propName)) {
+            delete obj[propName];
+        } else {
+            const originVal = obj[propName];
+
+            if (typeof val === 'object' && typeof originVal === 'object') {
+                update(originVal, val);
+            } else if (obj.hasOwnProperty(propName)) {
+                if (originVal !== val) {
+                    obj[propName] = val;
+                }
+            } else {
+                obj[propName] = val;
+            }
+        }
+    });
 };
 
 module.exports = {
